@@ -9,25 +9,28 @@ namespace Business.Concrete
 {
     public class VehicleManager : IVehicleService
     {
-        IVehicleDal _vehicleDal;
+        ICarDal _carDal;
 
-        public VehicleManager(IVehicleDal vehicleDal)
+        public VehicleManager(ICarDal carDal)
         {
-            _vehicleDal = vehicleDal;
+            _carDal = carDal;
         }
 
         public List<Car> GetAll()
         {
             // iş kodları
             // yetki sorgulaması
-            return _vehicleDal.GetAll();
+            return _carDal.GetAll();
         }
 
-        public Car GetById(Car car)
+        public List<Car> GetCarsByBrandId(int brandId)
         {
-            // iş kodları
-            // yetki sorgulaması
-            return _vehicleDal.GeyById(car);
+            return _carDal.GetAll(p => p.BrandId == brandId);
+        }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            return _carDal.GetAll(p=>p.ColorId == colorId);
         }
     }
 }
