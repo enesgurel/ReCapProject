@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Business.Constans;
 using Data_Access.Concrete.EntityFramework;
 using Data_Access.Concrete.InMemory;
 using System;
@@ -9,7 +10,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
             //BrandTest();
 
 
@@ -18,19 +19,35 @@ namespace ConsoleUI
         private static void BrandTest()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            foreach (var brand in brandManager.GetAll())
+
+            var result = brandManager.GetAll();
+
+            if (result.Success)
             {
-                Console.WriteLine(brand.BrandName);
+                foreach (var brand in result.Data)
+                {
+                    Console.WriteLine(brand.BrandName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+            
         }
 
         private static void CarTest()
         {
-            VehicleManager vehicleManager = new VehicleManager(new EfCarDal());
-            foreach (var car in vehicleManager.GetCarDetails())
+            CarManager vehicleManager = new CarManager(new EfCarDal());
+
+            var result = vehicleManager.GetCarDetails();
+            if (result.Success)
             {
-                Console.WriteLine(car.CarName + " / " + car.BrandName + " / " + car.ColorName + " / " + car.DailyPrice);
-            }
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.CarName + " / " + car.BrandName + " / " + car.ColorName + " / " + car.DailyPrice);
+                }
+            }            
         }
     }
 }
