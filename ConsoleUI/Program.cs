@@ -13,7 +13,22 @@ namespace ConsoleUI
             //CarTest();
             //BrandTest();
 
+            //RentalTest();
+        }
 
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetAll();
+
+            if (result.Success)
+            {
+                foreach (var rental in result.Data)
+                {
+                    Console.WriteLine(rental.RentDate);
+                }
+            }
         }
 
         private static void BrandTest()
