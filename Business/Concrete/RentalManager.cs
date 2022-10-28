@@ -32,6 +32,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Rental>(_rentalDal.Get(c => c.CarId == carId));
         }
 
+        // TODO : Aracın kiralanabilmesi için teslim edilmesi gerekmektedir
         public IResult Add(Rental rental)
         {
             _rentalDal.Add(rental);
