@@ -16,17 +16,42 @@ namespace ConsoleUI
             //BrandTest();
             //RentalTest();
 
+            AddUserTest();
+
+            //CustomerTest();
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            var result = customerManager.GetAll();
+
+            if (result.Success)
+            {
+                foreach (var customer in result.Data)
+                {
+                    Console.WriteLine(customer.CompanyName);
+                }
+            }
+        }
+
+        private static void AddUserTest()
+        {
             UserManager userManager = new UserManager(new EfUserDal());
 
             User user1 = new User();
-            user1.Id = 2;
-            user1.FirstName = "test";
-            user1.LastName = "test1";
-            user1.Email = "Test1";
+            user1.Id = 4;
+            user1.FirstName = "Test";
+            user1.LastName = "test2";
+            user1.Email = "test@gmail.com";
             user1.Password = "1345";
 
-            userManager.Add(user1);
-
+            var result = userManager.Add(user1);
+            
+            if (result.Success)
+            {
+                Console.WriteLine(Messages.UserAdded);
+            }
         }
 
         private static void RentalTest()
@@ -61,7 +86,7 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-            
+
         }
 
         private static void CarTest()
@@ -71,11 +96,10 @@ namespace ConsoleUI
             var result = vehicleManager.GetCarDetails();
             if (result.Success)
             {
-                Console.WriteLine(result.Success);
-                //foreach (var car in result.Data)
-                //{
-                //    Console.WriteLine(car.CarName + " / " + car.BrandName + " / " + car.ColorName + " / " + car.DailyPrice);
-                //}
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.CarName + " " + car.BrandName + " " + car.ColorName + " " + car.Description);
+                }
             }            
         }
     }

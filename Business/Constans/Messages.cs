@@ -12,5 +12,6 @@ namespace Business.Constans
         public static string ProductsListed = "Ürünler Listelendi";
         public static string CustomerListed = "Müşteriler Listelendi";
         public static string CustomerAdded = "Müşteri Eklendi";
+        public static string UserAdded = "Kullanıcı Eklendi";
     }
 }

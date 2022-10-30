@@ -17,11 +17,11 @@ namespace Data_Access.Concrete.InMemory
         {
             // Oracle, SQlServer, Postgres, MongoDb
             _cars = new List<Car> {
-            new Car{Id = 1, BrandId = 1, ColorId = 1, ModelYear = 2005, DailyPrice = 500, Description = "2005 Model BMW"},
-            new Car{Id = 2, BrandId = 1, ColorId = 1, ModelYear = 2007, DailyPrice = 530, Description = "2007 Model BMW"},
-            new Car{Id = 3, BrandId = 2, ColorId = 3, ModelYear = 2010, DailyPrice = 750, Description = "2010 Model Mercedes"},
-            new Car{Id = 4, BrandId = 1, ColorId = 2, ModelYear = 2020, DailyPrice = 1350, Description = "2020 Model BMW"},
-            new Car{Id = 5, BrandId = 2, ColorId = 3, ModelYear = 2023, DailyPrice = 1750, Description = "2023 Model Mercedes"}
+            new Car{CarId = 1, BrandId = 1, ColorId = 1, ModelYear = 2005, DailyPrice = 500, Description = "2005 Model BMW"},
+            new Car{CarId = 2, BrandId = 1, ColorId = 1, ModelYear = 2007, DailyPrice = 530, Description = "2007 Model BMW"},
+            new Car{CarId = 3, BrandId = 2, ColorId = 3, ModelYear = 2010, DailyPrice = 750, Description = "2010 Model Mercedes"},
+            new Car{CarId = 4, BrandId = 1, ColorId = 2, ModelYear = 2020, DailyPrice = 1350, Description = "2020 Model BMW"},
+            new Car{CarId = 5, BrandId = 2, ColorId = 3, ModelYear = 2023, DailyPrice = 1750, Description = "2023 Model Mercedes"}
             };
         }
 
@@ -32,7 +32,7 @@ namespace Data_Access.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carToDelete = _cars.FirstOrDefault(c => c.Id == car.Id);
+            Car carToDelete = _cars.FirstOrDefault(c => c.CarId == car.CarId);
             _cars.Remove(carToDelete);
         }
 
@@ -58,13 +58,13 @@ namespace Data_Access.Concrete.InMemory
 
         public Car GeyById(Car car)
         {
-            return _cars.SingleOrDefault(c => c.Id == car.Id);
+            return _cars.SingleOrDefault(c => c.CarId == car.CarId);
         }
 
         public void Update(Car car)
         {
-            Car carToUpdate = _cars.FirstOrDefault(c => c.Id == car.Id);
-            carToUpdate.Id = car.Id;
+            Car carToUpdate = _cars.FirstOrDefault(c => c.CarId == car.CarId);
+            carToUpdate.CarId = car.CarId;
             carToUpdate.BrandId = car.BrandId;
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.ModelYear = car.ModelYear;
