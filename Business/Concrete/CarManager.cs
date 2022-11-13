@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using Data_Access.Abstract;
 using Entities.Concrete;
@@ -19,13 +21,9 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            // Business Kodları
-            if (car.CarName.Length > 2)
-            {
-                return new ErrorResult(Messages.ProductNameInvalid);
-            }
             _carDal.Add(car);
             return new SuccesResult(Messages.ProductAdded);
         }
