@@ -13,5 +13,7 @@ namespace Business.Constans
         public static string CustomerListed = "Müşteriler Listelendi";
         public static string CustomerAdded = "Müşteri Eklendi";
         public static string UserAdded = "Kullanıcı Eklendi";
+        public static string CarNameAlreadyExists = "Bu İsimli Ürün Zaten Mevcut";
+        public static string BrandLimitExceded = "Kategori Limiti Aşıldı";
     }
 }
