@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public Result Add(IFormFile imageFile, CarImage carImage)
         {
-            var ruleResult = BusinessRules.Run(CheckImageLimitExceeded());
+            var ruleResult = BusinessRules.Run(CheckImageLimitExceeded(carImage.CarId));
 
             if (ruleResult != null)
             {
