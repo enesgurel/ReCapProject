@@ -15,5 +15,10 @@ namespace Business.Constans
         public static string UserAdded = "Kullanıcı Eklendi";
         public static string CarNameAlreadyExists = "Bu İsimli Ürün Zaten Mevcut";
         public static string BrandLimitExceded = "Kategori Limiti Aşıldı";
+        public static string CarImageAdded = "Araç Resmi Eklendi";
+        public static string CarImageUpdated = "Araç Resmi Güncellendi!";
+        public static string CarImageDoesNotFound = "Böyle Bir Araç Resmi Bulunmamakta";
+        public static string CarImageDeleted = "Araç Resmi Silindi!";
+        public static string CarImageLimitExceeded = "Eklenebilir Resim Limiti Aşıldı!";
     }
 }
