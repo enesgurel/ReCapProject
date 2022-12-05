@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Entities.Concrete;
 
 namespace Business.Constans
 {
@@ -20,5 +21,12 @@ namespace Business.Constans
         public static string CarImageDoesNotFound = "Böyle Bir Araç Resmi Bulunmamakta";
         public static string CarImageDeleted = "Araç Resmi Silindi!";
         public static string CarImageLimitExceeded = "Eklenebilir Resim Limiti Aşıldı!";
+        public static string AuthorizationDenied = "Yetkilendirme Reddedildi";
+        public static string UserRegistered = "Kayıt Oldu";
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string PasswordError = "Parola Hatası";
+        public static string SuccessfulLogin = "Başarılı Giriş";
+        public static string UserAlreadyExists = "Kullanıcı Mevcut";
+        public static string AccessTokenCreated = "Token Oluşturuldu";
     }
 }
