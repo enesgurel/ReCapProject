@@ -40,7 +40,6 @@ namespace Business.Concrete
             return _userDal.Get(u => u.Email == email);
         }
 
-        [SecuredOperation("product.add,admin")]
         public IResult Add(User user)
         {
             _userDal.Add(user);
